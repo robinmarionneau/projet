@@ -5,5 +5,6 @@ create table movies (
         synopsis varchar(255),
         title varchar(300) not null,
         year integer not null,
+        id_director integer,
         CONSTRAINT pk_movie primary key(id)
 );
