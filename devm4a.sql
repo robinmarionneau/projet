@@ -1,8 +1,8 @@
-create table play (
+create table [IF NOT EXISTS] play (
         id_movie integer not null, 
         id_actor integer not null);
 
-create table stars (id integer auto_increment, 
+create table [IF NOT EXISTS] stars (id integer auto_increment, 
         birthdate date, 
         name varchar(100) not null, 
         primary key (id));
