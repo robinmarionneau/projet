@@ -1,0 +1,26 @@
+#docker compose for prod V0
+version: '3.1'
+services:
+
+  db:
+      image: mariadb:10.9.2
+      restart: always
+      environment:
+        MYSQL_DATABASE: dbmovie
+        MYSQL_USER: movie
+        MYSQL_PASSWORD: password
+        MYSQL_ROOT_PASSWORD: password
+      volumes:
+        - /opt/sql/V0:/docker-entrypoint-initdb.d
+        - DBProd:/var/lib/mysql
+      ports:
+          - 8082:3306
+
+  api:
+      build:
+        context: .
+      ports:
+          - 8081:8080
+
+volumes:
+  DBProd:
